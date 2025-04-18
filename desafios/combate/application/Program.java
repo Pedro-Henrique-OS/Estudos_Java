@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.Locale;
 import desafios.combate.entities.Champion;
 
-public class Program {
+public class program {
     public static void main(String[]args){
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
@@ -24,7 +24,7 @@ public class Program {
         armadura1 = sc.nextInt();
         sc.nextLine();
 
-        Champion champion1 = new  Champion(nome1,vidaInicial1,ataque1,armadura1);
+        Champion champion1 = new Champion(nome1,vidaInicial1,ataque1,armadura1);
 
         System.out.println(champion1);
 
@@ -37,7 +37,7 @@ public class Program {
         ataque2 = sc.nextInt();
         System.out.println("Armadura:");
         armadura2 = sc.nextInt();
-        Champion champion2 = new  Champion(nome2,vidaInicial2,ataque2,armadura2);
+        Champion champion2 = new Champion(nome2,vidaInicial2,ataque2,armadura2);
 
         System.out.println("Quantos turnos você deseja executar?");
         quantidade = sc.nextInt();
