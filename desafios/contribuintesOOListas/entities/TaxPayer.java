@@ -1,7 +1,7 @@
 package desafios.contribuintesOOListas.entities;
 
 public class TaxPayer { // Contribuinte
-    private Double salaryIncome; // Renda com Salário
+    private Double salaryIncome; // Renda com Salário, anual
     private Double servicesIncome; // Renda com prestação de serviço
     private Double capitalIncome; // Renda com ganho de capital
     private Double healthSpending; // Gastos Medicos
@@ -57,5 +57,49 @@ public class TaxPayer { // Contribuinte
 
     public Double getServicesIncome() {
         return servicesIncome;
+    }
+
+
+    // Cálculo do imposto sobre salário
+    public double salaryTax(){
+       double monthlySalary = salaryIncome / 12;
+       if(monthlySalary < 3000){
+           return  0;
+       }
+       else if (monthlySalary > 3000 && monthlySalary < 5000) {
+           return salaryIncome * 0.10;
+       }
+       else {
+           return salaryIncome * 0.20;
+       }
+    }
+
+    // Cálculo do imposto sobre serviços
+    public double servicesTax(){ //serviços impostos
+       return salaryIncome * 0.15;
+    }
+
+    // Cálculo do imposto sobre ganho de capital
+    public double capitalTax(){
+       return salaryIncome * 0.20;
+    }
+
+    // Cálculo do imposto bruto
+    public double grossTax(){
+       return salaryTax() + servicesTax() + capitalTax();
+    }
+
+
+    // Cálculo do abatimento
+    public double taxRebate(){
+       double maxDeductible = grossTax() * 0.30;
+       double totalSpending = healthSpending + educationSpending;
+       return Math.min(totalSpending,maxDeductible);
+
+    }
+
+    // Cálculo do imposto final
+    public double netTax(){
+       return grossTax() - taxRebate();
     }
 }
