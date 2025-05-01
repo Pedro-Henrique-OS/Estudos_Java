@@ -66,7 +66,7 @@ public class TaxPayer { // Contribuinte
        if(monthlySalary < 3000){
            return  0;
        }
-       else if (monthlySalary > 3000 && monthlySalary < 5000) {
+       else if (monthlySalary >= 3000 && monthlySalary < 5000) {
            return salaryIncome * 0.10;
        }
        else {
@@ -76,12 +76,12 @@ public class TaxPayer { // Contribuinte
 
     // Cálculo do imposto sobre serviços
     public double servicesTax(){ //serviços impostos
-       return salaryIncome * 0.15;
+       return servicesIncome * 0.15;
     }
 
     // Cálculo do imposto sobre ganho de capital
     public double capitalTax(){
-       return salaryIncome * 0.20;
+       return capitalIncome * 0.20;
     }
 
     // Cálculo do imposto bruto
@@ -102,4 +102,6 @@ public class TaxPayer { // Contribuinte
     public double netTax(){
        return grossTax() - taxRebate();
     }
+
+
 }
